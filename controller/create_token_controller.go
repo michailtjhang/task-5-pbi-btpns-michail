@@ -1,4 +1,4 @@
-package handlers
+package controller
 
 import "github.com/dgrijalva/jwt-go"
 
