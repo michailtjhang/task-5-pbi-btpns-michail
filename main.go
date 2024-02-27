@@ -23,10 +23,10 @@ func main() {
 
 	// Rute CRUD Photo
 	router.GET("/products", middlewares.AuthMiddleware(), controller.ListProducts(db))
-	router.GET("/products/:id", controller.GetPhoto(db))
-	router.POST("/products", controller.CreatePhoto(db))
-	router.PUT("/products/:id", controller.UpdatePhoto(db))
-	router.DELETE("/products/:id", controller.DeletePhoto(db))
+	router.GET("/products/:id", middlewares.AuthMiddleware(), controller.GetPhoto(db))
+	router.POST("/products", middlewares.AuthMiddleware(), controller.CreatePhoto(db))
+	router.PUT("/products/:id", middlewares.AuthMiddleware(), controller.UpdatePhoto(db))
+	router.DELETE("/products/:id", middlewares.AuthMiddleware(), controller.DeletePhoto(db))
 
 	// Rute Login dan Register User
 	router.POST("/login", controller.Login(db))
